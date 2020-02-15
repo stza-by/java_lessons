@@ -1,4 +1,4 @@
-package step_4;
+package part_1.step_4;
 
 public class Person {
 

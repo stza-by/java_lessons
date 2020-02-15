@@ -1,8 +1,8 @@
-package step_5;
+package part_1.step_5;
 
 import java.util.ArrayList;
 
-import step_4.Person;
+import part_1.step_4.Person;
 
 public class DataStructures {
 

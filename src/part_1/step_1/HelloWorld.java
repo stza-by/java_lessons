@@ -1,4 +1,4 @@
-package step_1;
+package part_1.step_1;
 
 public class HelloWorld {
 

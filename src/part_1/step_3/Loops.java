@@ -1,4 +1,4 @@
-package step_3;
+package part_1.step_3;
 import java.util.Scanner;
 
 public class Loops {
