@@ -1,7 +1,6 @@
 package part_2.step_2;
 
 import java.util.HashMap;
-import java.util.Set;
 
 public class CollectionsTasks {
 
