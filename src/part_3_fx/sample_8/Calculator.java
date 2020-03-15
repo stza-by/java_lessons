@@ -1,4 +1,4 @@
-package part_3_fx.Sample_8;
+package part_3_fx.sample_8;
 
 public class Calculator {
 }
