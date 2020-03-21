@@ -1,4 +1,3 @@
-
 package part_3_fx.adress_app;
 
 import javafx.application.Application;
@@ -8,14 +7,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import part_3_fx.adress_app.Model.Person;
-import part_3_fx.adress_app.View.RootLayoutController;
-
+import part_3_fx.adress_app.model.Person;
+import part_3_fx.adress_app.view.RootLayoutController;
 
 public class Main extends Application {
 
     private Stage window;
-    public static ObservableList<Person> personData = FXCollections.observableArrayList();
+    private ObservableList<Person> personData = FXCollections.observableArrayList();
 
     @Override
     public void start(Stage mainStage) throws Exception {
@@ -29,10 +27,20 @@ public class Main extends Application {
         loader.setLocation(getClass().getResource("View/RootLayout.fxml"));
         Parent rootLayout = loader.load();
 
+        RootLayoutController rootController = loader.getController();
+        rootController.setMainInstance(this);
         Scene scene = new Scene(rootLayout, 1000, 600);
         mainStage.setTitle("Адрессная книга");
         mainStage.setScene(scene);
         mainStage.show();
+    }
+
+    public Stage getMainWindow() {
+        return window;
+    }
+
+    public ObservableList<Person> getPersonData() {
+        return personData;
     }
 
     public static void main(String[] args) {
