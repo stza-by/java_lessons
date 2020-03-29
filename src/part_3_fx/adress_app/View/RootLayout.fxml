@@ -37,7 +37,6 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <VBox.margin>
                   <Insets left="20.0" right="20.0" />
@@ -51,10 +50,8 @@
                   <Label fx:id="cityLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                   <Label text="Улица" GridPane.rowIndex="3" />
                   <Label text="Номер дома" GridPane.rowIndex="4" />
-                  <Label text="День рождения " GridPane.rowIndex="5" />
                   <Label fx:id="streetLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                   <Label fx:id="houseNumberLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                  <Label fx:id="birthDayLabel" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                </children>
             </GridPane>
             <HBox alignment="BOTTOM_RIGHT" prefHeight="57.0" prefWidth="559.0" spacing="20.0">

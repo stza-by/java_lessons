@@ -33,12 +33,15 @@ public class RootLayoutController {
     @FXML
     private Label houseNumberLabel;
 
-    @FXML
-    private Label birthDayLabel;
+    Main mainApp;
+
+    public void setMainApp(Main mainApp) {
+        this.mainApp = mainApp;
+        personTable.setItems(mainApp.getPersonData());
+    }
 
     @FXML
     private void initialize() {
-        personTable.setItems(Main.personData);
 
         firstNameColumn.setCellValueFactory(cellData -> {
             return cellData.getValue().firstNameProperty();
@@ -47,5 +50,29 @@ public class RootLayoutController {
         lastNameColumn.setCellValueFactory(cellData -> {
             return cellData.getValue().lastNameProperty();
         });
+
+        showPersonData(null);
+
+        personTable.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            showPersonData(newValue);
+        });
     }
+
+    private void showPersonData(Person person) {
+        if (person != null) {
+            firstNameLabel.setText(person.getFirstName());
+            lastNameLabel.setText(person.getLastName());
+            cityLabel.setText(person.getCity());
+            streetLabel.setText(person.getStreet());
+            houseNumberLabel.setText(person.getHouseNumber());
+        } else {
+            firstNameLabel.setText("");
+            lastNameLabel.setText("");
+            cityLabel.setText("");
+            streetLabel.setText("");
+            houseNumberLabel.setText("");
+        }
+    }
+
+
 }

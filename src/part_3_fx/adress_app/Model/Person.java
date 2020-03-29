@@ -2,7 +2,6 @@ package part_3_fx.adress_app.Model;
 
 import javafx.beans.property.*;
 
-import java.time.LocalDate;
 
 public class Person {
 
@@ -11,25 +10,21 @@ public class Person {
     private StringProperty city;
     private StringProperty street;
     private StringProperty houseNumber;
-    private ObjectProperty<LocalDate> birthDay;
-
 
     public Person(String firstName, String lastName) {
-        this(firstName, lastName, "Не указанно", "Не указанно", "Не указанно", LocalDate.of(1, 1, 1));
+        this(firstName, lastName, "Не указанно", "Не указанно", "Не указанно");
     }
 
     public Person(String firstName,
                   String lastName,
                   String city,
                   String street,
-                  String houseNumber,
-                  LocalDate birthDay) {
+                  String houseNumber) {
         this.firstName = new SimpleStringProperty(firstName);
         this.lastName = new SimpleStringProperty(lastName);
         this.city = new SimpleStringProperty(city);
         this.street = new SimpleStringProperty(street);
         this.houseNumber = new SimpleStringProperty(houseNumber);
-        this.birthDay = new SimpleObjectProperty<>(birthDay);
     }
 
     public String getFirstName() {
@@ -90,17 +85,5 @@ public class Person {
 
     public void setHouseNumber(String houseNumber) {
         this.houseNumber.set(houseNumber);
-    }
-
-    public LocalDate getBirthDay() {
-        return birthDay.get();
-    }
-
-    public ObjectProperty<LocalDate> birthDayProperty() {
-        return birthDay;
-    }
-
-    public void setBirthDay(LocalDate birthDay) {
-        this.birthDay.set(birthDay);
     }
 }
