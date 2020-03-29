@@ -6,6 +6,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import part_3_fx.adress_app.model.Person;
 import part_3_fx.adress_app.view.RootLayoutController;
@@ -17,11 +18,9 @@ public class Main extends Application {
 
     @Override
     public void start(Stage mainStage) throws Exception {
-        this.window = mainStage;
+        addTestData();
 
-        // test data
-        personData.add(new Person("Stepan", "Zaelenchyts"));
-        personData.add(new Person("Stepan2", "Zaelenchyts2"));
+        this.window = mainStage;
 
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("View/RootLayout.fxml"));
@@ -46,4 +45,13 @@ public class Main extends Application {
     public static void main(String[] args) {
         Main.launch(args);
     }
+
+
+    void addTestData(){
+        // test data
+        personData.add(new Person("Иван", "Иванов"));
+        personData.add(new Person("Леха", "Ро", "Брест", "Гоголя", "10"));
+        personData.add(new Person("Степан", "Степанович", "Брест", "Гоголя", "11"));
+    }
 }
+

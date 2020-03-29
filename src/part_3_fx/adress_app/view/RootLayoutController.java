@@ -1,7 +1,12 @@
 package part_3_fx.adress_app.view;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import part_3_fx.adress_app.Main;
 import part_3_fx.adress_app.model.Person;
 
@@ -100,5 +105,22 @@ public class RootLayoutController {
                 personTable.getItems().remove(index);
             }
         }
+    }
+
+    @FXML
+    private void showPersonEditDialog() throws Exception {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("EditUserView.fxml"));
+        Parent editView = loader.load();
+        Scene editScene = new Scene(editView, 500, 300);
+
+        Stage editPersonStage = new Stage();
+        editPersonStage.setScene(editScene);
+
+        editPersonStage.setTitle("Редактирование");
+        editPersonStage.initModality(Modality.WINDOW_MODAL);
+        editPersonStage.initOwner(this.mainAppInstance.getMainWindow());
+
+        editPersonStage.showAndWait();
     }
 }
