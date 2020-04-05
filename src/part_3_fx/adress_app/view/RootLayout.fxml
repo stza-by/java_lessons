@@ -56,8 +56,8 @@
             </GridPane>
             <HBox alignment="BOTTOM_RIGHT" prefHeight="57.0" prefWidth="559.0" spacing="20.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#showPersonEditDialog" text="Добавить " />
-                  <Button mnemonicParsing="false" text="Редактировать" />
+                  <Button mnemonicParsing="false" onAction="#addUser" text="Добавить " />
+                  <Button mnemonicParsing="false" onAction="#editUser" text="Редактировать" />
                   <Button mnemonicParsing="false" onAction="#handleDeleteItem" text="Удалить" />
                </children>
                <VBox.margin>

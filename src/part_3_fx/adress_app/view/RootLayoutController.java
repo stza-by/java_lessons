@@ -108,19 +108,58 @@ public class RootLayoutController {
     }
 
     @FXML
-    private void showPersonEditDialog() throws Exception {
+    private void addUser() throws Exception {
+        Person tempPerson = new Person();
+        boolean shouldSave = showPersonAddEditDialog(tempPerson);
+
+        if (shouldSave) {
+            // mainAppInstance.getPersonData().add(tempPerson);
+            personTable.getItems().add(tempPerson);
+            showPersonData(tempPerson);
+        }
+    }
+
+    @FXML
+    private void editUser() throws Exception {
+        int index = personTable.getSelectionModel().getFocusedIndex();
+        if (index < 0) {
+            System.out.println("Error");
+        } else {
+            Person editablePerson = personTable.getItems().get(index);
+            boolean shouldSave = showPersonAddEditDialog(editablePerson);
+
+            if (shouldSave) {
+                showPersonData(editablePerson);
+            }
+        }
+    }
+
+    private boolean showPersonAddEditDialog(Person person) throws Exception {
+        // загружаем fxml файл
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("EditUserView.fxml"));
         Parent editView = loader.load();
+
+        // создаем сцену
         Scene editScene = new Scene(editView, 500, 300);
 
+        // создаем окно и утсанавливаем в него сцену
         Stage editPersonStage = new Stage();
         editPersonStage.setScene(editScene);
 
-        editPersonStage.setTitle("Редактирование");
+        // делаем окно модальным и привязываем его к главному окну приложения
         editPersonStage.initModality(Modality.WINDOW_MODAL);
         editPersonStage.initOwner(this.mainAppInstance.getMainWindow());
 
+        // Получаем контроллер модального окна редактирования
+        EditUserViewController editUserViewController = loader.getController();
+        editUserViewController.setAddEditPersonStage(editPersonStage);
+
+        editPersonStage.setTitle("Редактирование пользователя");
+        editUserViewController.setPerson(person);
+
         editPersonStage.showAndWait();
+
+        return editUserViewController.getSaveClicked();
     }
 }

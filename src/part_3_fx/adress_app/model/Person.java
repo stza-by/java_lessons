@@ -2,8 +2,6 @@ package part_3_fx.adress_app.model;
 
 import javafx.beans.property.*;
 
-import java.time.LocalDate;
-
 public class Person {
 
     private StringProperty firstName;
@@ -11,11 +9,14 @@ public class Person {
     private StringProperty city;
     private StringProperty street;
     private StringProperty houseNumber;
-    private ObjectProperty<LocalDate> birthDay;
 
 
     public Person(String firstName, String lastName) {
         this(firstName, lastName, "Не указанно", "Не указанно", "Не указанно");
+    }
+
+    public Person() {
+        this("", "", "", "", "");
     }
 
     public Person(String firstName,
