@@ -27,6 +27,10 @@ public class Person {
         this.houseNumber = new SimpleStringProperty(houseNumber);
     }
 
+    public String getFullName() {
+        return getFirstName() + " " + getLastName();
+    }
+
     public String getFirstName() {
         return firstName.get();
     }

@@ -21,7 +21,6 @@ public class Main extends Application {
     public void start(Stage mainStage) throws Exception {
 
         window = mainStage;
-
         createTestData();
 
         FXMLLoader loader = new FXMLLoader();
