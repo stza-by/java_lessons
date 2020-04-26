@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="334.0" prefWidth="412.0" style="-fx-background-color: #a3969f;" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="part_3_fx.sample_12_css.Main">
+   <children>
+      <GridPane layoutX="37.0" layoutY="60.0" prefHeight="174.0" prefWidth="312.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="10.0" prefWidth="117.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="252.0" minWidth="10.0" prefWidth="195.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="67.0" minHeight="10.0" prefHeight="67.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="37.0" minHeight="10.0" prefHeight="17.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label prefHeight="27.0" prefWidth="92.0" text="Username:" />
+            <Label text="Password:" GridPane.rowIndex="1" />
+            <TextField prefHeight="33.0" prefWidth="224.0" styleClass="big-text" GridPane.columnIndex="1" />
+            <PasswordField prefHeight="34.0" prefWidth="224.0" styleClass="big-text" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Button fx:id="login" mnemonicParsing="false" prefHeight="35.0" prefWidth="120.0" styleClass="custom-button" text="Login" GridPane.rowIndex="2" />
+            <Button fx:id="registration" mnemonicParsing="false" prefHeight="35.0" prefWidth="202.0" text="Registration" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+         </children>
+      </GridPane>
+   </children>
+</AnchorPane>

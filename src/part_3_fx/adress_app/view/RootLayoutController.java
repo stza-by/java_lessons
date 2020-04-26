@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import part_3_fx.adress_app.Main;
@@ -146,6 +147,8 @@ public class RootLayoutController {
         // создаем окно и утсанавливаем в него сцену
         Stage editPersonStage = new Stage();
         editPersonStage.setScene(editScene);
+        // задаем окну иконку
+        editPersonStage.getIcons().add(new Image("file:resources/images/new-user-icon.png"));
 
         // делаем окно модальным и привязываем его к главному окну приложения
         editPersonStage.initModality(Modality.WINDOW_MODAL);

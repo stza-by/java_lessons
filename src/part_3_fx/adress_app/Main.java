@@ -6,6 +6,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import part_3_fx.adress_app.model.Person;
@@ -29,9 +30,10 @@ public class Main extends Application {
         RootLayoutController rootController = loader.getController();
         rootController.setMainInstance(this);
         Scene scene = new Scene(rootLayout, 1000, 600);
-        mainStage.setTitle("Адрессная книга");
-        mainStage.setScene(scene);
-        mainStage.show();
+        window.setTitle("Адрессная книга");
+        window.getIcons().add(new Image("file:resources/images/icon.png"));
+        window.setScene(scene);
+        window.show();
     }
 
     public Stage getMainWindow() {
