@@ -7,8 +7,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="375.0" prefWidth="385.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="part_3_fx.adress_app.View.AddEditViewController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="375.0" prefWidth="385.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="part_3_fx.adress_app.view.AddEditViewController">
    <children>
       <GridPane prefHeight="284.0" prefWidth="385.0">
         <columnConstraints>
@@ -28,11 +27,11 @@
             <Label text="Город" GridPane.rowIndex="2" />
             <Label text="Улица" GridPane.rowIndex="3" />
             <Label text="Номер дома" GridPane.rowIndex="4" />
-            <TextField GridPane.columnIndex="1" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <TextField GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <TextField fx:id="firstName" GridPane.columnIndex="1" />
+            <TextField fx:id="lastName" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="city" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="street" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="houseNumber" GridPane.columnIndex="1" GridPane.rowIndex="4" />
          </children>
          <VBox.margin>
             <Insets left="30.0" right="30.0" />
@@ -40,8 +39,8 @@
       </GridPane>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="30.0">
          <children>
-            <Button mnemonicParsing="false" text="Сохранить" />
-            <Button mnemonicParsing="false" text="Отменить" />
+            <Button mnemonicParsing="false" onAction="#handleSave" text="Сохранить" />
+            <Button mnemonicParsing="false" onAction="#handleCancel" text="Отменить" />
          </children>
       </HBox>
    </children>

@@ -11,6 +11,10 @@ public class Person {
     private StringProperty street;
     private StringProperty houseNumber;
 
+    public Person() {
+        this("", "", "", "", "");
+    }
+
     public Person(String firstName, String lastName) {
         this(firstName, lastName, "Не указанно", "Не указанно", "Не указанно");
     }

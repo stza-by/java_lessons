@@ -8,7 +8,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="555.0" prefWidth="862.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="part_3_fx.adress_app.View.RootLayoutController">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="555.0" prefWidth="862.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="part_3_fx.adress_app.view.RootLayoutController">
    <children>
       <TableView fx:id="personTable" prefHeight="639.0" prefWidth="304.0">
         <columns>
@@ -56,8 +56,8 @@
             </GridPane>
             <HBox alignment="BOTTOM_RIGHT" prefHeight="57.0" prefWidth="559.0" spacing="20.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#showPersonAddEditWindow" text="Добавить " />
-                  <Button mnemonicParsing="false" text="Редактировать" />
+                  <Button mnemonicParsing="false" onAction="#addUser" text="Добавить " />
+                  <Button mnemonicParsing="false" onAction="#editUser" text="Редактировать" />
                   <Button mnemonicParsing="false" onAction="#handleDeleteItem" text="Удалить" />
                </children>
                <VBox.margin>

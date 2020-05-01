@@ -1,10 +1,11 @@
-package part_3_fx.adress_app.View;
+package part_3_fx.adress_app.view;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import part_3_fx.adress_app.Main;
@@ -108,9 +109,35 @@ public class RootLayoutController {
             houseNumberLabel.setText("");
         }
     }
+    
+    @FXML
+    private void addUser() throws Exception {
+        Person tempPerson = new Person();
+        boolean shouldSave =  showPersonAddEditWindow(tempPerson, false);
+
+        if(shouldSave) {
+            personTable.getItems().add(tempPerson);
+            showPersonData(tempPerson);
+        }
+    }
 
     @FXML
-    private void showPersonAddEditWindow() throws Exception {
+    private void editUser() throws Exception {
+        int index = personTable.getSelectionModel().getFocusedIndex();
+
+        if(index < 0) {
+            System.out.println("Error");
+        } else {
+            Person editablePerson = personTable.getItems().get(index);
+            boolean shouldSave = showPersonAddEditWindow(editablePerson, true);
+            if(shouldSave) {
+                showPersonData(editablePerson);
+            }
+        }
+    }
+
+    @FXML
+    private boolean showPersonAddEditWindow(Person person, boolean isEdit) throws Exception {
         // загружаем fxml файл
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("AddEditView.fxml"));
@@ -126,8 +153,20 @@ public class RootLayoutController {
         addEditStage.initModality(Modality.WINDOW_MODAL);
         addEditStage.initOwner(this.mainApp.getWindow());
 
-        addEditStage.setTitle("Редактирование пользователя");
+        if(isEdit){
+            addEditStage.setTitle("Редактирование пользователя");
+        } else{
+            addEditStage.setTitle("Добавление нового пользователя");
+        }
+
+        addEditStage.getIcons().add(new Image("file:resources/images/icon.png"));
+
+        AddEditViewController addEditController = loader.getController();
+        addEditController.setPerson(person);
+        addEditController.setAddEditStage(addEditStage);
 
         addEditStage.showAndWait();
+
+        return addEditController.getSaveClicked();
     }
 }

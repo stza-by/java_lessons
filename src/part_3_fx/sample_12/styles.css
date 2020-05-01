@@ -1,0 +1,23 @@
+.button {
+  -fx-background-color: #7e73ff;
+  -fx-text-fill: #fff;
+  -fx-font-size: 1.5em;
+}
+
+.my-button {
+-fx-background-color: #fc2626;
+}
+
+.parent {
+-fx-background-color: #bfbdbd;
+}
+
+.header {
+  -fx-font-size: 3.5em;
+    -fx-text-fill: #fff;
+
+}
+
+.label {
+-fx-text-fill: #fff;
+}

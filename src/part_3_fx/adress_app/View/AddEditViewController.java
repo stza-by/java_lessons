@@ -1,4 +1,4 @@
-package part_3_fx.adress_app.View;
+package part_3_fx.adress_app.view;
 
 
 import javafx.fxml.FXML;
