@@ -52,6 +52,16 @@ public class PhoneBookController {
             filterData(newValue);
         });
 
+        table.setOnMouseClicked(e -> {
+            System.out.println("Clicked");
+            if (e.getClickCount() == 2) {
+                Person selectedItem = table.getSelectionModel().getSelectedItem();
+                if (selectedItem != null) {
+                    showAddEditView(selectedItem);
+                }
+            }
+        });
+
         mainAppData.fillTestData();
     }
 
@@ -101,18 +111,63 @@ public class PhoneBookController {
     // edit person
 
     @FXML
-    public void showAddEditView() throws Exception {
-        Stage addEditModal = new Stage();
+    public void addNewUser() throws Exception {
 
-        Parent aboutModalFxml = FXMLLoader.load(getClass().getResource("../fxml/AddEditFxml.fxml"));
-        addEditModal.setTitle("Add Edit");
-        addEditModal.setMinHeight(50);
-        addEditModal.setMinWidth(600);
+        Person newPerson = new Person("", "");
 
-        addEditModal.setResizable(false);
-        addEditModal.initModality(Modality.WINDOW_MODAL);
-        addEditModal.initOwner(PhoneBookApp.getMainWindow());
-        addEditModal.setScene(new Scene(aboutModalFxml));
-        addEditModal.showAndWait();
+        boolean shouldSave = showAddEditView(newPerson);
+
+        if (shouldSave) {
+            mainAppData.add(newPerson);
+        }
+    }
+
+    @FXML
+    public void editUser() throws Exception {
+        Person selectedItem = table.getSelectionModel().getSelectedItem();
+
+        if (selectedItem == null) {
+            System.out.println("Error");
+            return;
+        }
+
+        boolean isSave = showAddEditView(selectedItem);
+
+        if (isSave) {
+            System.out.println("user was changed");
+        }
+    }
+
+
+    @FXML
+    public boolean showAddEditView(Person editablePerson) {
+        try {
+            Stage addEditModal = new Stage();
+
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("../fxml/AddEditFxml.fxml"));
+
+            Parent aboutModalFxml = loader.load();
+
+            AddEditController addEditController = loader.getController();
+            addEditController.setPerson(editablePerson);
+            addEditController.setWindow(addEditModal);
+
+            addEditModal.setTitle("Add Edit");
+            addEditModal.setMinHeight(50);
+            addEditModal.setMinWidth(600);
+
+            addEditModal.setResizable(false);
+            addEditModal.initModality(Modality.WINDOW_MODAL);
+            addEditModal.initOwner(PhoneBookApp.getMainWindow());
+            addEditModal.setScene(new Scene(aboutModalFxml));
+            addEditModal.showAndWait();
+            return addEditController.getIsSave();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+
+        return false;
+
     }
 }

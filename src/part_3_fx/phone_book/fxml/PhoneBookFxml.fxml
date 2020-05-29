@@ -13,8 +13,8 @@
         <menus>
             <Menu mnemonicParsing="false" text="Actions">
               <items>
-                <MenuItem mnemonicParsing="false" onAction="#showAddEditView" text="Add" />
-                  <MenuItem mnemonicParsing="false" onAction="#showAddEditView" text="Edit" />
+                <MenuItem mnemonicParsing="false" onAction="#addNewUser" text="Add" />
+                  <MenuItem mnemonicParsing="false" onAction="#editUser" text="Edit" />
                   <MenuItem mnemonicParsing="false" onAction="#deleteItem" text="Delete" />
               </items>
             </Menu>
