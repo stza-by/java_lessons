@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Список дел</title>
+
+  </head>
+  <body>
+    <header class="bg-primary p-4 mb-3">
+      <div class="container">
+        <h1 id="header-title">Список дел</h1>
+      </div>
+    </header>
+
+    <div class="container">
+      <div class="card card-body">
+        <h2>Добавить элемент</h2>
+
+        <form class="form mb-3">
+          <input
+            class="form-control"
+            placeholder="Имя элемента..."
+            type="text"
+          />
+          <input
+            class="form-control btn btn-primary mt-3"
+            type="button"
+            value="Добавить"
+          />
+        </form>
+      </div>
+
+      <div class="card card-body mt-5">
+        <h2>Список:</h2>
+
+        <ul id='items' class="list-group">
+          <li class="list-group-item">Элемент 1</li>
+          <li class="list-group-item">Элемент 2</li>
+          <li class="list-group-item">Элемент 3</li>
+          <li class="list-group-item">Элемент 4</li>
+        </ul>
+      </div>
+    </div>
+
+    <script src="index.js"></script>
+  </body>
+</html>
